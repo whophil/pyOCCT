@@ -237,7 +237,7 @@ jobs:
           conda list
 
       - name: "Set SDKROOT"
-        run: echo "SDKROOT=$(xcrun --show-sdk-path)" >> $GITHUB_ENV
+        run: echo "SDKROOT=/opt/MacOSX10.9.sdk" >> $GITHUB_ENV
 
       - name: "Generate bindings"
         shell: pwsh
@@ -274,7 +274,7 @@ jobs:
           sudo chown -R $USER $CONDA
           curl -o  MacOSX10.9.sdk.tar.xz -L https://github.com/phracker/MacOSX-SDKs/releases/download/10.15/MacOSX10.9.sdk.tar.xz
           tar xf MacOSX10.9.sdk.tar.xz
-          sudo mv -v MacOSX10.9.sdk /Applications/Xcode_12.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
+          sudo mv -v MacOSX10.9.sdk /opt/
 
       - name: "Configure conda"
         shell: pwsh
